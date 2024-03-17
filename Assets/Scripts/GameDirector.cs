@@ -7,13 +7,14 @@ public class GameDirector : MonoBehaviour
 {
     public static float difficultyLevel = 10f;
     public Text timerText;
+    public GameObject evelynn;
     public GameObject nocturne;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<M_Evelynn>().Evelynn();
+        evelynn.transform.GetComponent<M_Evelynn>().Evelynn();
         GetComponent<M_Fiddlesticks>().Fiddlesticks();
         GetComponent<Timer>().resetTimer();
         GetComponent<Timer>().IsTimerOn(true);
