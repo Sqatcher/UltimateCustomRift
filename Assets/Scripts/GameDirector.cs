@@ -7,6 +7,7 @@ public class GameDirector : MonoBehaviour
 {
     public static float difficultyLevel = 10f;
     public Text timerText;
+    public GameObject nocturne;
 
 
     // Start is called before the first frame update
@@ -16,6 +17,7 @@ public class GameDirector : MonoBehaviour
         GetComponent<M_Fiddlesticks>().Fiddlesticks();
         GetComponent<Timer>().resetTimer();
         GetComponent<Timer>().IsTimerOn(true);
+        nocturne.transform.GetComponent<M_Nocturne>().Nocturne();
     }
 
     // Update is called once per frame
