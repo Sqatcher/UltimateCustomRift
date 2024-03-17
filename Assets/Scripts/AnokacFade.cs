@@ -11,10 +11,11 @@ public class AnokacFade : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
         img.color = new Color(1, 1, 1, 0);
         FadeInFunction();
-        Invoke("FadeOutFunction", 3);
-        Invoke("NextScene", 5);    
+        Invoke("FadeOutFunction", 5f);
+        Invoke("NextScene", 9f);
     }
 
     void NextScene()
@@ -34,19 +35,19 @@ public class AnokacFade : MonoBehaviour
 
     IEnumerator FadeIn()
 	{
-        for (float i = 0; i <= 2; i += Time.deltaTime)   // i <= 1  -- over 1 second
+        for (float i = 0; i <= 3; i += Time.deltaTime)   // i <= 1  -- over 1 second
         {
             // set color with i as alpha
-            img.color = new Color(1, 1, 1, i);
+            img.color = new Color(1, 1, 1, i/3f);
             yield return null;
         }
     }
 
     IEnumerator FadeOut()
 	{
-        for (float i = 2; i >= 0; i -= Time.deltaTime)
+        for (float i = 4; i >= 0; i -= Time.deltaTime)
         {
-            img.color = new Color(1, 1, 1, i);
+            img.color = new Color(1, 1, 1, i/4f);
             yield return null;
         }
     }
