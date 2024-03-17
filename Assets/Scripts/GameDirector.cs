@@ -10,6 +10,8 @@ public class GameDirector : MonoBehaviour
     public GameObject evelynn;
     public GameObject nocturne;
 
+    bool audioPlaying = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,5 +29,19 @@ public class GameDirector : MonoBehaviour
         timerText.text = GetComponent<Timer>().GiveStringTimeShort();
     }
 
+    public bool PlayAudio(float time)
+    {
+        if (audioPlaying)
+        {
+            return false;
+        }
+        audioPlaying = true;
+        Invoke("AudioOff", time);
+        return true;
+    }
 
+    void AudioOff()
+    {
+        audioPlaying = false;
+    }
 }

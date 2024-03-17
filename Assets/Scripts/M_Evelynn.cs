@@ -13,6 +13,7 @@ public class M_Evelynn : MonoBehaviour
     public GameObject eveLaughs;
     public AudioSource eveKill;
     public GameObject eveAttack;
+    public GameObject gameDirector;
 
     float EVELYNN_APPEAR_S = 10f;
     bool isAlluring = false;
@@ -124,7 +125,10 @@ public class M_Evelynn : MonoBehaviour
 
     void EveKill()
     {
-        eveKill.Play();
+        if (gameDirector.GetComponent<GameDirector>().PlayAudio(1.2f))
+        {
+            eveKill.Play();
+        }
         Invoke("PauseEveAudio", 1.2f);
         StartCoroutine("EveAttack");
         Invoke("KIA", 1f);

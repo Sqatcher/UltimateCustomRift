@@ -8,6 +8,7 @@ public class M_FiddleEffigy : MonoBehaviour
     public AudioSource fiddleKill;
     public GameObject fiddleLaughs;
     public GameObject fiddleAttack;
+    public GameObject gameDirector;
 
     public bool immortal = false;
     public GameObject effigyHolder;

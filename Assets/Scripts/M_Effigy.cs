@@ -20,13 +20,19 @@ public class M_Effigy : MonoBehaviour
     void FiddleLaugh()
     {
         int ix = Random.Range(0, fiddleLaughs.transform.childCount);
-        fiddleLaughs.transform.GetChild(ix).GetComponent<AudioSource>().Play();
+        if (fiddleParent.GetComponent<M_FiddleEffigy>().gameDirector.GetComponent<GameDirector>().PlayAudio(2f))
+        {
+            fiddleLaughs.transform.GetChild(ix).GetComponent<AudioSource>().Play();
+        }
     }
 
     void FiddleKill()
     {
         fiddleParent.GetComponent<M_FiddleEffigy>().immortal = true;
-        fiddleKill.Play();
+        if (fiddleParent.GetComponent<M_FiddleEffigy>().gameDirector.GetComponent<GameDirector>().PlayAudio(3.5f))
+        {
+            fiddleKill.Play();
+        }
         StartCoroutine("FiddleAttack");
         Invoke("KIA", 3.5f);
     }
