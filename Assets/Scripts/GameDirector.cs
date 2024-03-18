@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameDirector : MonoBehaviour
 {
     public static float difficultyLevel = 10f;
     public Text timerText;
     public GameObject evelynn;
+    public GameObject raum;
     public GameObject nocturne;
 
     bool audioPlaying = false;
@@ -16,11 +18,12 @@ public class GameDirector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        evelynn.transform.GetComponent<M_Evelynn>().Evelynn();
-        GetComponent<M_Fiddlesticks>().Fiddlesticks();
+        //evelynn.transform.GetComponent<M_Evelynn>().Evelynn();
+        //GetComponent<M_Fiddlesticks>().Fiddlesticks();
         GetComponent<Timer>().resetTimer();
         GetComponent<Timer>().IsTimerOn(true);
-        nocturne.transform.GetComponent<M_Nocturne>().Nocturne();
+        //nocturne.transform.GetComponent<M_Nocturne>().Nocturne();
+        raum.transform.GetComponent<M_Raum>().Raum();
     }
 
     // Update is called once per frame
@@ -43,5 +46,15 @@ public class GameDirector : MonoBehaviour
     void AudioOff()
     {
         audioPlaying = false;
+    }
+
+    public void KIA(float time)
+    {
+        Invoke("KIAd", time);
+    }
+
+    void KIAd()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }
