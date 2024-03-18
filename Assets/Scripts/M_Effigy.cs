@@ -34,7 +34,8 @@ public class M_Effigy : MonoBehaviour
             fiddleKill.Play();
         }
         StartCoroutine("FiddleAttack");
-        Invoke("KIA", 3.5f);
+        //Invoke("KIA", 3.5f);
+        fiddleParent.GetComponent<M_FiddleEffigy>().gameDirector.GetComponent<GameDirector>().KIA(3.5f);
     }
 
     IEnumerator FiddleAttack()
@@ -48,10 +49,5 @@ public class M_Effigy : MonoBehaviour
             }
             yield return null;
         }
-    }
-
-    void KIA()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }

@@ -131,7 +131,7 @@ public class M_Evelynn : MonoBehaviour
         }
         Invoke("PauseEveAudio", 1.2f);
         StartCoroutine("EveAttack");
-        Invoke("KIA", 1f);
+        gameDirector.GetComponent<GameDirector>().KIA(1.1f);
     }
 
     IEnumerator EveAttack()
@@ -142,10 +142,5 @@ public class M_Evelynn : MonoBehaviour
             eveAttack.SetActive(true);
             yield return null;
         }
-    }
-
-    void KIA()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }
