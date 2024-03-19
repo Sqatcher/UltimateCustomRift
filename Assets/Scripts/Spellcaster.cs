@@ -16,12 +16,18 @@ public class Spellcaster : MonoBehaviour
     string[] spellChorus;
     string spellCast = "";
 
+    int[] spellCosts;
+
     // Start is called before the first frame update
     void Start()
     {
         spellNumber = spells.transform.childCount;
         spellBook = new(spellNumber);
         spellChorus = new string[spellNumber];
+        spellCosts = new int[spellNumber];
+        spellCosts[0] = 10;
+        spellCosts[1] = 8;
+
         for (int i=0; i<spellNumber; i++)
         {
             int k = Random.Range(0, 10);  //70 | 30
@@ -194,6 +200,10 @@ public class Spellcaster : MonoBehaviour
 
     void CastSpell(int ix)
     {
+        if (!GetComponent<ManaManagment>().CastManaSpell(spellCosts[ix]))
+        {
+            return;
+        }
         bool s = false;
         switch(ix)
         {

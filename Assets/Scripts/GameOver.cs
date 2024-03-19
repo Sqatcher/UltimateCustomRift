@@ -54,7 +54,7 @@ public class GameOver : MonoBehaviour
     {
         for (float i = 0; i <= 5; i += Time.deltaTime)   // i <= 1  -- over 1 second
         {
-            scoreText.GetComponent<CanvasRenderer>().SetAlpha(i/2f);
+            scoreText.GetComponent<CanvasRenderer>().SetAlpha(i/5f);
             yield return null;
         }
     }
