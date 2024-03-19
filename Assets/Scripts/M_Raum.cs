@@ -60,6 +60,7 @@ public class M_Raum : MonoBehaviour
             crows.transform.GetChild(j).gameObject.SetActive(false);
         }
         crowNumber = 0;
+        finalCrow.SetActive(true);
         isKilling = false;
         toReset = true;
         Invoke("StartHaunting", 4f + Random.Range(0f, 10f));

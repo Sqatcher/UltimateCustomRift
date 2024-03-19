@@ -84,4 +84,9 @@ public class M_Nocturne : MonoBehaviour
         trueDarkness.SetActive(false);
         trueDarkness.transform.SetParent(transform);
     }
+
+    public bool IsNocturneAttacking()
+    {
+        return trueDarkness.activeSelf;
+    }
 }

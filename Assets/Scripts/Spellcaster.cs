@@ -191,15 +191,29 @@ public class Spellcaster : MonoBehaviour
     {
         for (int i=0; i<spellNumber; i++)
         {
-            if (spellChant == spellChorus[i])
+            if (spellChant.Length <= spellChorus[i].Length)
             {
-                CastSpell(i);
+                if (spellChant == spellChorus[i])
+                {
+                    CastSpell(i);
+                }
+            }
+            else
+            {
+                if (spellChant.Substring(spellChant.Length - spellChorus[i].Length) == spellChorus[i])
+                {
+                    CastSpell(i);
+                }
             }
         }
     }
 
     void CastSpell(int ix)
     {
+        if (nocturne.GetComponent<M_Nocturne>().IsNocturneAttacking())
+        {
+            return;
+        }
         if (!GetComponent<ManaManagment>().CastManaSpell(spellCosts[ix]))
         {
             return;
