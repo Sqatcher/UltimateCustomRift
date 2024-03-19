@@ -13,6 +13,7 @@ public class M_Raum : MonoBehaviour
     int crowNumber = 0;
     int TOTAL_CROWS = 6;
     bool isKilling = false;
+    bool toReset = false;
 
     public void Raum()
     {
@@ -21,12 +22,16 @@ public class M_Raum : MonoBehaviour
 
     void StartHaunting()
     {
-        crowNumber = 0;
         Invoke("SummonCrow", 6f + Random.Range(0f, 4.5f));
     }
 
     void SummonCrow()
     {
+        if (toReset)
+        {
+            toReset = false;
+            return;
+        }
         crows.transform.GetChild(crowNumber).gameObject.SetActive(true);
         crowNumber+=1;
         if (crowNumber < TOTAL_CROWS)
@@ -42,6 +47,23 @@ public class M_Raum : MonoBehaviour
         finalCrow.SetActive(true);
         isKilling = true;
         Invoke("KillRaum", 6f);
+    }
+
+    public bool resetRaum()
+    {
+        if (!crows.activeSelf)
+        {
+            return false;
+        }
+        for (int j=crowNumber-1; j>=0; j--)
+        {
+            crows.transform.GetChild(j).gameObject.SetActive(false);
+        }
+        crowNumber = 0;
+        isKilling = false;
+        toReset = true;
+        Invoke("StartHaunting", 4f + Random.Range(0f, 10f));
+        return true;
     }
 
     void KillRaum()

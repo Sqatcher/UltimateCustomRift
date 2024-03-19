@@ -18,11 +18,11 @@ public class GameDirector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //evelynn.transform.GetComponent<M_Evelynn>().Evelynn();
-        //GetComponent<M_Fiddlesticks>().Fiddlesticks();
+        evelynn.transform.GetComponent<M_Evelynn>().Evelynn();
+        GetComponent<M_Fiddlesticks>().Fiddlesticks();
         GetComponent<Timer>().resetTimer();
         GetComponent<Timer>().IsTimerOn(true);
-        //nocturne.transform.GetComponent<M_Nocturne>().Nocturne();
+        nocturne.transform.GetComponent<M_Nocturne>().Nocturne();
         raum.transform.GetComponent<M_Raum>().Raum();
     }
 
@@ -55,6 +55,8 @@ public class GameDirector : MonoBehaviour
 
     void KIAd()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        GetComponent<Timer>().IsTimerOn(false);
+        DontDestroyOnLoad(gameObject);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

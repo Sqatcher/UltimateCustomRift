@@ -89,6 +89,10 @@ public class M_Evelynn : MonoBehaviour
         float k = 0f;
         for (float i = 0; i <= 5; i += Time.deltaTime)   // i <= 1  -- over 1 second
         {
+            if (!isAlluring)
+            {
+                break;
+            }
             Vector3 mousePosition = Input.mousePosition;
             mousePosition.z = 0f;
             float dist = Vector3.Distance(mousePosition, evePos.transform.GetChild(j).position);

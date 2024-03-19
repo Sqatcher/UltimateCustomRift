@@ -29,7 +29,6 @@ public class M_Nocturne : MonoBehaviour
         {
             hauntingTime += Time.deltaTime;
             darkness.GetComponent<CanvasRenderer>().SetAlpha(hauntingTime / (NOCTURNE_HAUNTING_NEEDED/2));
-            Debug.Log(darkness.GetComponent<CanvasRenderer>().GetColor());
         }
 
         if (isHaunting && hauntingTime >= NOCTURNE_HAUNTING_NEEDED)
@@ -43,6 +42,19 @@ public class M_Nocturne : MonoBehaviour
     public void Nocturne()
     {
         Invoke("StartHaunting", 4f);
+    }
+
+    public bool resetNocturne()
+    {
+        if (!areas.transform.GetChild(hauntingArea).gameObject.activeSelf)
+        {
+            return false;
+        }
+        isHaunting = false;
+        hauntingTime = 0;
+        darkness.SetActive(false);
+        Invoke("StartHaunting", 5f + Random.Range(0f, 12f));
+        return true;
     }
 
     void StartHaunting()
