@@ -51,7 +51,7 @@ public class M_Raum : MonoBehaviour
 
     public bool resetRaum()
     {
-        if (!crows.activeSelf)
+        if (!crows.activeInHierarchy)
         {
             return false;
         }

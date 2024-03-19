@@ -46,7 +46,7 @@ public class M_Nocturne : MonoBehaviour
 
     public bool resetNocturne()
     {
-        if (!areas.transform.GetChild(hauntingArea).gameObject.activeSelf)
+        if (!areas.transform.GetChild(hauntingArea).gameObject.activeInHierarchy)
         {
             return false;
         }
