@@ -2802,6 +2802,7 @@ GameObject:
   - component: {fileID: 411578892}
   - component: {fileID: 411578893}
   - component: {fileID: 411578894}
+  - component: {fileID: 411578895}
   m_Layer: 0
   m_Name: GameDirector
   m_TagString: GameDirector
@@ -2825,6 +2826,7 @@ MonoBehaviour:
   evelynn: {fileID: 948077262}
   raum: {fileID: 171491623}
   nocturne: {fileID: 2030325880}
+  tahm: {fileID: 1324499691}
 --- !u!4 &411578887
 Transform:
   m_ObjectHideFlags: 0
@@ -2926,6 +2928,18 @@ MonoBehaviour:
   manaPoints: 100
   manaBar: {fileID: 1113339540}
   manaPointsText: {fileID: 822498910}
+--- !u!114 &411578895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411578885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84a522fecbcb4214a95033f4ba641ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &413081513
 GameObject:
   m_ObjectHideFlags: 0
@@ -17190,8 +17204,8 @@ SceneRoots:
   - {fileID: 456030683}
   - {fileID: 1089675920}
   - {fileID: 382536532}
-  - {fileID: 411578887}
   - {fileID: 1213517209}
   - {fileID: 171491625}
   - {fileID: 1324499693}
   - {fileID: 1819186004}
+  - {fileID: 411578887}

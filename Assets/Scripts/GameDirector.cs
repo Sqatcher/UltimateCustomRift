@@ -11,6 +11,7 @@ public class GameDirector : MonoBehaviour
     public GameObject evelynn;
     public GameObject raum;
     public GameObject nocturne;
+    public GameObject tahm;
 
     bool audioPlaying = false;
 
@@ -18,12 +19,14 @@ public class GameDirector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        evelynn.transform.GetComponent<M_Evelynn>().Evelynn();
-        GetComponent<M_Fiddlesticks>().Fiddlesticks();
+        if (GetComponent<DifficultySetter>().getEvelynn()) evelynn.transform.GetComponent<M_Evelynn>().Evelynn();
+        if (GetComponent<DifficultySetter>().getFiddle()) GetComponent<M_Fiddlesticks>().Fiddlesticks();
+        if (GetComponent<DifficultySetter>().getNocturne()) nocturne.transform.GetComponent<M_Nocturne>().Nocturne();
+        if (GetComponent<DifficultySetter>().getRaum()) raum.transform.GetComponent<M_Raum>().Raum();
+        if (GetComponent<DifficultySetter>().getTahm()) tahm.transform.GetComponent<M_TahmKench>().StartTahm();
+
         GetComponent<Timer>().resetTimer();
         GetComponent<Timer>().IsTimerOn(true);
-        nocturne.transform.GetComponent<M_Nocturne>().Nocturne();
-        raum.transform.GetComponent<M_Raum>().Raum();
     }
 
     // Update is called once per frame

@@ -19,6 +19,7 @@ public class M_TahmKench : MonoBehaviour
     bool isSceneActive = false;
     bool isTahmAttacking = false;
     bool mouseHeld = false;
+    bool isTahmInTheGame = false;
 
     float hunger;
     float HUNGER_MAX = 50f;
@@ -29,9 +30,19 @@ public class M_TahmKench : MonoBehaviour
         hunger = HUNGER_MAX;
     }
 
+    public void StartTahm()
+    {
+        isTahmInTheGame = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (!isTahmInTheGame)
+        {
+            return;
+        }
+
         if (isTahmAttacking)
         {
             return;
