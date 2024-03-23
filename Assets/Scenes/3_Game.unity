@@ -9545,7 +9545,7 @@ MonoBehaviour:
   feedBar: {fileID: 1158140439}
   feedImage: {fileID: 1661960806}
   feedingSound: {fileID: 1723052518}
-  tahmAttack: {fileID: 0}
+  tahmAttack: {fileID: 11672978}
   gameDirector: {fileID: 411578885}
   tahmKillSounds: {fileID: 454931663}
   tahmMusic: {fileID: 879982781}
